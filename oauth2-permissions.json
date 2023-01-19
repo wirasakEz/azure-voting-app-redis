@@ -1,0 +1,14 @@
+{
+    "oauth2PermissionScopes": [
+        {
+            "adminConsentDescription": "Sign in and read user profile",
+            "adminConsentDisplayName": "Sign in and read user profile",
+            "id": "<service_principal>",
+            "isEnabled": true,
+            "type": "User",
+            "userConsentDescription": "Sign in and read user profile",
+            "userConsentDisplayName": "Sign in and read user profile",
+            "value": "User.Read"
+        }
+    ]
+}

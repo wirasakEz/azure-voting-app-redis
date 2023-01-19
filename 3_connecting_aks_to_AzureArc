@@ -1,0 +1,18 @@
+
+
+
+# Task 1: Prepare for connecting the AKS cluster to Azure Arc
+
+K8S_ARC_PREFIX=k8sArc
+ARC_RG_NAME="rg-${K8S_ARC_PREFIX}-k8s-dev-001"
+ARC_CLUSTER_NAME="${K8S_ARC_PREFIX}-lz-dev-001"
+azure_region=eastus
+
+# During the preview, the only supported Azure regions are East US and West Europe.
+#az provider show -n Microsoft.Kubernetes --query "[registrationState,resourceTypes[?resourceType=='connectedClusters'].locations]"
+
+az group create -n $ARC_RG_NAME -l $azure_region
+
+# Task 2: Connect the AKS cluster to Azure Arc
+az connectedk8s connect -g $ARC_RG_NAME -n $ARC_CLUSTER_NAME -l $azure_region
+kubectl get pods -n azure-arc
